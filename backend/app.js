@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const cors = require('cors');
 const router = require('./routes/index');
 const handleError = require('./middlewares/handleError');
 
@@ -15,6 +16,7 @@ const limiter = rateLimit({
 });
 
 const app = express();
+app.use(cors());
 app.use(limiter);
 app.use(helmet());
 app.use(express.json());
