@@ -1,0 +1,17 @@
+.header__container {
+  padding-top: 6px;
+}
+
+@media screen and (max-width: 588px) {
+  .header__container {
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header__container {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

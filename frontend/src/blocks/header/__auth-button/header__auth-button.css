@@ -1,0 +1,23 @@
+.header__auth-button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  border: none;
+  background-color: #000;
+  margin-left: 24px;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__auth-button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 588px) {
+  .header__auth-button {
+    margin-right: 20px;
+  }
+}

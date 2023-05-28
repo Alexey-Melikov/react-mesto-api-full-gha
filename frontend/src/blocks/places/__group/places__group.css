@@ -1,0 +1,7 @@
+.places__group {
+  display: flex;
+  justify-content: space-between;
+  width: 87%;
+  margin: 0;
+  padding: 23px 0 16px;
+}

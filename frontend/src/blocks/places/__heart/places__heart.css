@@ -1,0 +1,19 @@
+.places__heart {
+  background-image: url(../../../images/icon/Heart-disabled.svg);
+  background-size: 22px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: #fff;
+  align-self: start;
+  justify-self: start;
+}
+
+.places__heart:hover {
+  opacity: 0.5;
+}
