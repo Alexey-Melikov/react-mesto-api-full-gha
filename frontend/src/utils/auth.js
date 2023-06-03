@@ -1,5 +1,4 @@
-export const BASE_URL = "http://localhost:3001";
-// https://auth.nomoreparties.co
+export const BASE_URL = "https://api.nemesto.nomoredomains.rocks";
 
 const handleRes = (res) => {
   if (res.ok) {
