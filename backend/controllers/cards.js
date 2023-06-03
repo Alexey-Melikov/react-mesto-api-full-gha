@@ -9,7 +9,6 @@ const cardSchema = require('../models/card');
 module.exports.getCards = (req, res, next) => {
   cardSchema
     .find({})
-    .populate(['owner', 'likes'])
     .then((cards) => res.send(cards))
     .catch((err) => next(err));
 };

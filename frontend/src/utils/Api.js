@@ -12,10 +12,11 @@ class Api {
   }
 
   getUserInformation() {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/users/me`, {
       method: "GET",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     }).then((res) => {
@@ -24,10 +25,11 @@ class Api {
   }
 
   getInitialCards() {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/cards`, {
       method: "GET",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     }).then((res) => {
@@ -36,10 +38,11 @@ class Api {
   }
 
   changeLikeCardStatus(cardId, isLiked) {
-    return fetch(`${this.url}/cards/likes/${cardId}`, {
+    const token = localStorage.getItem("JWT");
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
       method: `${isLiked ? "PUT" : "DELETE"}`,
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     }).then((res) => {
@@ -48,10 +51,11 @@ class Api {
   }
 
   handleDeleteCard(cardId) {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     }).then((res) => {
@@ -60,10 +64,11 @@ class Api {
   }
 
   updateUserInformation(userInfo) {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -76,10 +81,11 @@ class Api {
   }
 
   userAvatarUpdate(userInfo) {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/users/me/avatar`, {
       method: "PATCH",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -91,10 +97,11 @@ class Api {
   }
 
   handleAddCard({ name, link }) {
+    const token = localStorage.getItem("JWT");
     return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: {
-        authorization: this.headers,
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

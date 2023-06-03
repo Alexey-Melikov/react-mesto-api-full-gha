@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 //image =>
 import successImage from "../images/logo/successful-logo.svg";
@@ -52,14 +52,14 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true);
-          setHeaderEmail(res.data.email);
+          setHeaderEmail(res.email);
           navigate("/");
         }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     if (loggedIn) {
@@ -68,7 +68,7 @@ function App() {
           // Данные профиля =>
           setCurrentUser(userData);
           // Запрос карточки =>
-          setCards(cards);
+          setCards(cards.reverse());
         })
         .catch((err) => console.log(err));
     }
@@ -105,7 +105,7 @@ function App() {
   }
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((id) => id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api

@@ -14,7 +14,9 @@ module.exports.getUserInfo = (req, res, next) => {
   userSchema
     .findById(req.user._id)
     .orFail()
-    .then((user) => res.send(user))
+    .then((user) => {
+      res.send(user);
+    })
     .catch((err) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError('User with specified id was not found.'));
